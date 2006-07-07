@@ -1,11 +1,12 @@
 package Email::LocalDelivery;
-# $Id: LocalDelivery.pm,v 1.16 2004/12/17 17:16:10 cwest Exp $
 use strict;
 
 use File::Path::Expand qw(expand_filename);
 use Email::FolderType qw(folder_type);
 use Carp;
-our $VERSION = '0.09';
+
+use vars qw($VERSION);
+$VERSION = '0.20';
 
 =head1 NAME
 

@@ -2,8 +2,10 @@ use strict;
 package Email::LocalDelivery::Maildir;
 use Email::Simple;
 use File::Path;
+use Symbol qw(gensym);
 
-our $VERSION = "1.06";
+use vars qw($VERSION);
+$VERSION = "1.10";
 my $maildir_time    = 0;
 my $maildir_counter = 0;
 use Sys::Hostname; (my $HOSTNAME = hostname) =~ s/\..*//;
@@ -81,8 +83,9 @@ sub write_links {
 
 sub write_message {
     my ($class, $mail, $file) = @_;
-    open my $fh, ">$file" or return;
-    print $fh $mail->as_string;
+    my $fh = gensym;
+    open $fh, ">$file" or return;
+    print $fh $mail->as_string or return;
     return close $fh;
 }
 

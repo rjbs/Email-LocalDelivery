@@ -18,7 +18,9 @@ is( scalar @delivered, 1, "just delivered to one mbox" );
 is( $delivered[0], $name, "delivered to the right location" );
 ok( -e $name, "file exists" );
 
-open my $fh, $name or die "couldn't open $name: $!";
+use Symbol qw(gensym);
+my $fh = gensym;
+open $fh, $name or die "couldn't open $name: $!";
 my $line = <$fh>;
 like( $line, qr/^From /, "added a From_ line" );
 

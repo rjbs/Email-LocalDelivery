@@ -3,8 +3,10 @@ use File::Path;
 use File::Basename;
 use Email::Simple;
 use Fcntl ':flock';
+use Symbol qw(gensym);
 
-our $VERSION = "1.07";
+use vars qw($VERSION);
+$VERSION = "1.10";
 
 sub deliver {
     my ($class, $mail, @files) = @_;
@@ -26,7 +28,8 @@ sub _open_fh {
     my $dir = dirname($file);
     return if ! -d $dir and not mkpath($dir);
 
-    open my $fh, ">> $file" or return;
+    my $fh = gensym;
+    open $fh, ">> $file" or return;
     $class->getlock($fh) || return;
     seek $fh, 0, 2;
     return $fh;
