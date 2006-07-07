@@ -47,8 +47,12 @@ sub deliver {
 
     }
     my %to_deliver;
-    push @{$to_deliver{folder_type($_)}}, $_
-      for map { expand_filename $_ } @boxes;
+
+    for my $box (@boxes) {
+      $box = expand_filename($box);
+      push @{$to_deliver{folder_type($box)}}, $box;
+    }
+
     my @rv;
     for my $method (keys %to_deliver) {
         eval "require Email::LocalDelivery::$method";

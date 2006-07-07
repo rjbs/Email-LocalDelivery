@@ -2,6 +2,7 @@
 
   - try to be compat with 5.005
   - don't lose mail when delivering to maildirs! (check print() status)
+  - avoid topicalization clashes during mailbox name/type matching
 
 0.09    2004-12-17
 
