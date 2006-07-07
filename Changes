@@ -1,3 +1,8 @@
+0.20    2006-07-07
+
+  - try to be compat with 5.005
+  - don't lose mail when delivering to maildirs! (check print() status)
+
 0.09    2004-12-17
 
   - New author.
