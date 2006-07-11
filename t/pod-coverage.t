@@ -19,6 +19,6 @@ my $trustme = [ qw(
 ) ];
 
 all_pod_coverage_ok({
-  trustme => [ $trustme ],
+  trustme => $trustme,
   coverage_class => 'Pod::Coverage::CountParents'
 });
