@@ -8,4 +8,6 @@ META.yml
 README
 t/00compile.t
 t/mbox.t
+t/pod.t
+t/pod-coverage.t
 t/test_mbox
