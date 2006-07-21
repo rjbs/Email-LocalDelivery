@@ -68,6 +68,12 @@ sub deliver {
 
 __END__
 
+=head1 PERL EMAIL PROJECT
+
+This module is maintained by the Perl Email Project
+
+  L<http://emailproject.perl.org/wiki/Email::LocalDelivery>
+
 =head1 COPYRIGHT AND LICENSE
 
 Copyright 2003 by Simon Cozens
@@ -76,9 +82,5 @@ Copyright 2004 by Casey West
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-=head1 CONTACT
-
-http://pep.kwiki.org
 
 =cut
