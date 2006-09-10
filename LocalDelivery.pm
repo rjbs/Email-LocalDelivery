@@ -72,7 +72,7 @@ __END__
 
 This module is maintained by the Perl Email Project
 
-  L<http://emailproject.perl.org/wiki/Email::LocalDelivery>
+L<http://emailproject.perl.org/wiki/Email::LocalDelivery>
 
 =head1 COPYRIGHT AND LICENSE
 
