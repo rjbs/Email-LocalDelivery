@@ -7,7 +7,7 @@ WriteMakefile(
   (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
     'Email::FolderType'  => '0.7',
-    'Email::Simple'      => '1.92',
+    'Email::Simple'      => '1.998', # needed for header_obj
     'File::Path::Expand' => '1.01',
     'Test::More'         => '0.47',
   },

@@ -1,12 +1,12 @@
 package Email::LocalDelivery::Mbox;
 use File::Path;
 use File::Basename;
-use Email::Simple;
+use Email::Simple 1.998; # needed for ->header_obj
 use Fcntl ':flock';
 use Symbol qw(gensym);
 
 use vars qw($VERSION);
-$VERSION = "1.10";
+$VERSION = "1.101";
 
 sub deliver {
     my ($class, $mail, @files) = @_;
@@ -46,10 +46,12 @@ sub _escape_from_body {
     my ($class, $mail_r) = @_;
 
     # breaking encapsulation is evil, but this routine is tricky
-    my ($head, $body) = Email::Simple::_split_head_from_body($$mail_r);
+    my $email = Email::Simple->new($mail_r);
+
+    my $body = $email->body;
     $body =~ s/^(From\s)/>$1/gm;
 
-    return $$mail_r = "$head\n$body";
+    return $email->header_obj->as_string . $email->crlf . $body;
 }
 
 sub _from_line {
