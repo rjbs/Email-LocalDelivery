@@ -1,0 +1,14 @@
+Changes
+LocalDelivery.pm
+LocalDelivery/Maildir.pm
+LocalDelivery/Mbox.pm
+Makefile.PL
+MANIFEST			This list of files
+META.yml
+README
+t/00compile.t
+t/mbox.t
+t/pod.t
+t/pod-coverage.t
+t/test_mbox
+LICENSE
