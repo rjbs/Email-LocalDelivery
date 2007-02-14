@@ -45,7 +45,6 @@ sub _close_fh {
 sub _escape_from_body {
     my ($class, $mail_r) = @_;
 
-    # breaking encapsulation is evil, but this routine is tricky
     my $email = Email::Simple->new($mail_r);
 
     my $body = $email->body;
