@@ -3,7 +3,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
   NAME         => 'Email::LocalDelivery',
-  VERSION_FROM => 'LocalDelivery.pm',
+  VERSION_FROM => 'lib/Email/LocalDelivery.pm',
   (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
     'Email::FolderType'  => '0.7',
