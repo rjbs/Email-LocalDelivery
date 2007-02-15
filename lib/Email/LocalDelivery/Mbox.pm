@@ -6,7 +6,7 @@ use Fcntl ':flock';
 use Symbol qw(gensym);
 
 use vars qw($VERSION);
-$VERSION = "1.101";
+$VERSION = "1.102";
 
 sub deliver {
     my ($class, $mail, @files) = @_;
