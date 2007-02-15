@@ -45,7 +45,7 @@ sub _close_fh {
 sub _escape_from_body {
     my ($class, $mail_r) = @_;
 
-    my $email = Email::Simple->new($mail_r);
+    my $email = Email::Simple->new($$mail_r);
 
     my $body = $email->body;
     $body =~ s/^(From\s)/>$1/gm;

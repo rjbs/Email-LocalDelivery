@@ -11,6 +11,7 @@ To: foot@body
 From: brane@body
 
 From here I can see the pub.
+It looks like a giant model pub.
 MAIL
 
 my @delivered = Email::LocalDelivery->deliver( $mail, $name );
