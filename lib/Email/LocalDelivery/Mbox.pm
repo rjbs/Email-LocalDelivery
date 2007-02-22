@@ -1,4 +1,6 @@
 package Email::LocalDelivery::Mbox;
+use strict;
+
 use File::Path;
 use File::Basename;
 use Email::Simple 1.998; # needed for ->header_obj
