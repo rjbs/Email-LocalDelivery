@@ -8,7 +8,7 @@ use Fcntl ':flock';
 use Symbol qw(gensym);
 
 use vars qw($VERSION);
-$VERSION = "1.102";
+$VERSION = "1.103";
 
 sub deliver {
     my ($class, $mail, @files) = @_;
@@ -50,7 +50,7 @@ sub _escape_from_body {
     my $email = Email::Simple->new($$mail_r);
 
     my $body = $email->body;
-    $body =~ s/^(From\s)/>$1/gm;
+    $body =~ s/^(From )/>$1/gm;
 
     return $email->header_obj->as_string . $email->crlf . $body;
 }
@@ -59,7 +59,7 @@ sub _from_line {
     my ($class, $mail_r) = @_;
 
     # The trivial way
-    return if $$mail_r =~ /^From\s/;
+    return if $$mail_r =~ /^From /;
 
     # The qmail way.
     return $ENV{UFLINE}.$ENV{RPLINE}.$ENV{DTLINE} if exists $ENV{UFLINE};
