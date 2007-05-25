@@ -35,8 +35,10 @@ F<~you/Maildir/>)
 
 sub deliver {
     my ($class, $mail, @boxes) = @_;
+
     croak "Mail argument to deliver should just be a plain string"
         if ref $mail;
+
     if (!@boxes) {
         my $default_unixbox = ( grep { -d $_ } qw(/var/spool/mail/ /var/mail/) )[0] . getpwuid($>);
         my $default_maildir = ((getpwuid($>))[7])."/Maildir/";
