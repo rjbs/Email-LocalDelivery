@@ -1,3 +1,6 @@
+0.216     2007-06-22
+          allow Maildir deliveries to be streamed to disk
+
 0.215     2007-04-15
           mbox is /From / not /From\s/ (rt 26373 from Simon Law)
 

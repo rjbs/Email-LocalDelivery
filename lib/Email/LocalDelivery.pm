@@ -6,7 +6,7 @@ use Email::FolderType qw(folder_type);
 use Carp;
 
 use vars qw($VERSION);
-$VERSION = '0.215';
+$VERSION = '0.216';
 
 =head1 NAME
 
@@ -75,6 +75,12 @@ __END__
 This module is maintained by the Perl Email Project
 
 L<http://emailproject.perl.org/wiki/Email::LocalDelivery>
+
+=head1 CONTACT INFO
+
+To report bugs, please use the request tracker at L<http://rt.cpan.org>.  For
+all other information, please contact the PEP mailing list (see the wiki,
+above) or Ricardo SIGNES.
 
 =head1 COPYRIGHT AND LICENSE
 

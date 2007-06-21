@@ -6,7 +6,7 @@ use File::Path;
 use Symbol qw(gensym);
 
 use vars qw($VERSION);
-$VERSION = "1.10";
+$VERSION = "1.101";
 my $maildir_time    = 0;
 my $maildir_counter = 0;
 use Sys::Hostname;
