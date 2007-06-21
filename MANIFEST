@@ -1,0 +1,13 @@
+Changes
+lib/Email/LocalDelivery.pm
+lib/Email/LocalDelivery/Maildir.pm
+lib/Email/LocalDelivery/Mbox.pm
+Makefile.PL
+MANIFEST			This list of files
+META.yml
+README
+t/00compile.t
+t/mbox.t
+t/pod.t
+t/pod-coverage.t
+LICENSE
