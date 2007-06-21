@@ -6,7 +6,7 @@ use Email::FolderType qw(folder_type);
 use Carp;
 
 use vars qw($VERSION);
-$VERSION = '0.216';
+$VERSION = '0.217';
 
 =head1 NAME
 
