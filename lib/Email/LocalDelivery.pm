@@ -1,16 +1,11 @@
-package Email::LocalDelivery;
 use strict;
+use warnings;
+package Email::LocalDelivery;
+# ABSTRACT: Deliver a piece of email - simply
 
-use File::Path::Expand qw(expand_filename);
-use Email::FolderType qw(folder_type);
+use File::Path::Expand 1.01 qw(expand_filename);
+use Email::FolderType 0.7 qw(folder_type);
 use Carp;
-
-use vars qw($VERSION);
-$VERSION = '0.217';
-
-=head1 NAME
-
-Email::LocalDelivery - Deliver a piece of email - simply
 
 =head1 SYNOPSIS
 
@@ -21,9 +16,11 @@ Email::LocalDelivery - Deliver a piece of email - simply
 
 This module delivers an email to a list of mailboxes.
 
-=head1 METHODS
+B<Achtung!>  You might be better off looking at L<Email::Sender>, and at
+L<Email::Sender::Transport::Maildir> and L<Email::Sender::Transport::Mbox>.
+They are heavily used and more carefully monitored.
 
-=head2 deliver
+=method deliver
 
 This takes an email, as a plain string, and a list of mailboxes to
 deliver that mail to. It returns the list of boxes actually written to.
@@ -40,13 +37,14 @@ sub deliver {
         if ref $mail;
 
     if (!@boxes) {
-        my $default_unixbox = ( grep { -d $_ } qw(/var/spool/mail/ /var/mail/) )[0] . getpwuid($>);
-        my $default_maildir = ((getpwuid($>))[7])."/Maildir/";
+        my $default_maildir = (getpwuid($>))[7] . "/Maildir/";
+        my $default_unixbox
+          = (grep { -d $_ } qw(/var/spool/mail/ /var/mail/))[0]
+          . getpwuid($>);
 
         @boxes = $ENV{MAIL}
             || (-e $default_unixbox && $default_unixbox)
             || (-d $default_maildir."cur" && $default_maildir);
-
     }
     my %to_deliver;
 
@@ -67,28 +65,3 @@ sub deliver {
 }
 
 1;
-
-__END__
-
-=head1 PERL EMAIL PROJECT
-
-This module is maintained by the Perl Email Project
-
-L<http://emailproject.perl.org/wiki/Email::LocalDelivery>
-
-=head1 CONTACT INFO
-
-To report bugs, please use the request tracker at L<http://rt.cpan.org>.  For
-all other information, please contact the PEP mailing list (see the wiki,
-above) or Ricardo SIGNES.
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright 2003 by Simon Cozens
-
-Copyright 2004 by Casey West
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut

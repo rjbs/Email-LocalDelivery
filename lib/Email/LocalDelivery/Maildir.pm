@@ -1,12 +1,17 @@
 use strict;
-
+use warnings;
 package Email::LocalDelivery::Maildir;
+# ABSTRACT: deliver mail to a Maildir
 use Email::Simple;
 use File::Path;
 use Symbol qw(gensym);
 
-use vars qw($VERSION);
-$VERSION = "1.101";
+=head1 INSTEAD...
+
+Instead, consider using L<Email::Sender::Transport::Maildir>.
+
+=cut
+
 my $maildir_time    = 0;
 my $maildir_counter = 0;
 use Sys::Hostname;

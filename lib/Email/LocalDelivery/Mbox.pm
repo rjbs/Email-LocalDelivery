@@ -1,14 +1,19 @@
-package Email::LocalDelivery::Mbox;
 use strict;
+use warnings;
+package Email::LocalDelivery::Mbox;
+# ABSTRACT: deliver mail to an mbox
+
+=head1 INSTEAD...
+
+Instead, consider using L<Email::Sender::Transport::Maildir>.
+
+=cut
 
 use File::Path;
 use File::Basename;
 use Email::Simple 1.998;  # needed for ->header_obj
 use Fcntl ':flock';
 use Symbol qw(gensym);
-
-use vars qw($VERSION);
-$VERSION = "1.103";
 
 sub deliver {
   # The slightly convoluted method of unrolling the stack is intended to limit
