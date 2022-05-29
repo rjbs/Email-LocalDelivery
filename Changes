@@ -1,6 +1,7 @@
 Release history for Email-LocalDelivery
 
 {{$NEXT}}
+          update dist metadata
 
 1.200     2013-08-08 21:24:39 America/New_York
           crank the version number *way* up to bring all the module versions in
