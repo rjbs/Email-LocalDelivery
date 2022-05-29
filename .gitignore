@@ -1,2 +1,4 @@
 .build
 Email-LocalDelivery-*
+.gitnxtver_cache
+t/test_mbox
